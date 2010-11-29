@@ -434,9 +434,9 @@ module Rails
       # Show an upgrade alert to the user
       def alert(title, text, more_info_url, culprits)
         if Config::CONFIG['host_os'].downcase =~ /mswin|windows|mingw/
-          basic_alert(title, text, more_info_url, culprits)
+          basic_alert(title, text, more_info_url, culprits.sort) 
         else
-          color_alert(title, text, more_info_url, culprits)
+          basic_alert(title, text, more_info_url, culprits.sort) #removed color alerts and sorted output
         end
       end
 
